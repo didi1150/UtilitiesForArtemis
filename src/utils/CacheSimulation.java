@@ -63,37 +63,37 @@ public class CacheSimulation {
 				}
 				System.out.print(output + '|');
 			}
-			for (int j = cacheLine.getSize(); j < associativity; j++) {
+			for (int j = cacheLine.currentAmount(); j < associativity; j++) {
 				System.out.print("           |");
 			}
 			System.out.println();
 		}
-
-		System.out.println();
-
-		System.out.println("|  Set  ||   Tag 1   |   Tag 2   |   Tag 3   |   Tag 4   |");
-		System.out.println("|-------||-----------|-----------|-----------|-----------|");
-		for (int i = 0; i < numSets; i++) {
-			System.out.print("|   " + i + "   ||");
-			CacheLine cacheLine = cache.get(i);
-			for (TagPair tagPair : cacheLine.getTagPairs()) {
-				long value = tagPair.getValue();
-				String output = "" + value;
-				while (output.length() < 11) {
-					if (output.length() == 10)
-						output = ' ' + output;
-					else
-						output = ' ' + output + ' ';
-				}
-				if (output.isBlank())
-					output = output.substring(0, output.length() - 1) + "|";
-				System.out.print(output + '|');
-			}
-			for (int j = cacheLine.getSize(); j < associativity; j++) {
-				System.out.print("           |");
-			}
-			System.out.println();
-		}
+//
+//		System.out.println();
+//
+//		System.out.println("|  Set  ||   Tag 1   |   Tag 2   |   Tag 3   |   Tag 4   |");
+//		System.out.println("|-------||-----------|-----------|-----------|-----------|");
+//		for (int i = 0; i < numSets; i++) {
+//			System.out.print("|   " + i + "   ||");
+//			CacheLine cacheLine = cache.get(i);
+//			for (TagPair tagPair : cacheLine.getTagPairs()) {
+//				long value = tagPair.getValue();
+//				String output = "" + value;
+//				while (output.length() < 11) {
+//					if (output.length() == 10)
+//						output = ' ' + output;
+//					else
+//						output = ' ' + output + ' ';
+//				}
+//				if (output.isBlank())
+//					output = output.substring(0, output.length() - 1) + "|";
+//				System.out.print(output + '|');
+//			}
+//			for (int j = cacheLine.getSize(); j < associativity; j++) {
+//				System.out.print("           |");
+//			}
+//			System.out.println();
+//		}
 
 		System.out.println("--------------------------- " + evictingPolicy.name() + " --------------------------");
 	}

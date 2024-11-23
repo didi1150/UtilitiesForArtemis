@@ -43,13 +43,13 @@ public class EraDecoder {
 //			System.out.println("Tag: " + tag + " | Set: " + index);
 //		}
 
-		CacheSimulation cacheSimulation = new CacheSimulation(4, 4, 32, EvictingPolicy.FIFO);
+		CacheSimulation cacheSimulation = new CacheSimulation(4, 4, 32, EvictingPolicy.LFU);
 		for (String string : new EraDecoder().getHexa()) {
 			string = hexToBin(string.substring(2).toUpperCase());
 			string = String.format("%32s", string).replace(' ', '0');
 			cacheSimulation.accessMemory(string);
-			cacheSimulation.printCache();
-		}
-	}
 
+		}
+		cacheSimulation.printCache();
+	}
 }

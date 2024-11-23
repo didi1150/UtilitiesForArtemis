@@ -48,4 +48,8 @@ public abstract class CacheLine {
 	public int getSize() {
 		return size;
 	}
+
+	public int currentAmount() {
+		return tagPairs.size();
+	}
 }
